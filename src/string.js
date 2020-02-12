@@ -1,6 +1,15 @@
 export const toUpper =
-  x => x.toUpperCase();
+  ch => ch.toUpperCase();
 
 
 export const toLower =
-  x => x.toLowerCase();
+  ch => ch.toLowerCase();
+
+
+export const ord =
+  ch => ch.charCodeAt(0);
+
+
+export const chr =
+  x => String.fromCharCode(x);
+
