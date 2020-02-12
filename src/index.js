@@ -11,7 +11,9 @@ import {
 
 import {
   plus,
-  mul
+  mul,
+  succ,
+  pred
 } from './number';
 
 import {
@@ -21,7 +23,9 @@ import {
 } from './higher-order';
 
 import {
-  toUpper
+  toUpper,
+  ord,
+  chr
 } from './string';
 
 
@@ -49,3 +53,16 @@ const stars = foldr (compose) (callback (null)) (listOfStarFunctions);
 const lists = fromArray ([stars (), fromString ('hello'), stars ()])
 const prettyHello = foldr (concat) (null) (lists);
 console.log (toString (prettyHello));  // *****hello*****
+
+
+// caesar code
+const encodeFns = fromArray ([chr, succ, ord]);
+const encode = foldr (compose) (id) (encodeFns);
+const msg = fromString ('Secret message!');
+const encodedMsg = map (encode) (msg);
+console.log (toString (encodedMsg));  // Tfdsfu!nfttbhf"
+
+const decodeFns = fromArray ([chr, pred, ord]);
+const decode = foldr (compose) (id) (decodeFns);
+const decodedMsg = map (decode) (encodedMsg);
+console.log (toString (decodedMsg));  // Secret message!
