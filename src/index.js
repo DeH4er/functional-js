@@ -57,12 +57,14 @@ console.log (toString (prettyHello));  // *****hello*****
 
 // caesar code
 const encodeFns = fromArray ([chr, succ, ord]);
-const encode = foldr (compose) (id) (encodeFns);
-const msg = fromString ('Secret message!');
-const encodedMsg = map (encode) (msg);
-console.log (toString (encodedMsg));  // Tfdsfu!nfttbhf"
-
 const decodeFns = fromArray ([chr, pred, ord]);
+const msg = fromString ('Secret message!');
+
+const encode = foldr (compose) (id) (encodeFns);
 const decode = foldr (compose) (id) (decodeFns);
+
+const encodedMsg = map (encode) (msg);
 const decodedMsg = map (decode) (encodedMsg);
+
+console.log (toString (encodedMsg));  // Tfdsfu!nfttbhf"
 console.log (toString (decodedMsg));  // Secret message!
