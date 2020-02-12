@@ -17,5 +17,6 @@ export const div =
 export const succ =
     a => a + 1;
 
+
 export const pred =
     a => a - 1;
