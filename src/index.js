@@ -48,4 +48,4 @@ const listOfStarFunctions = repeat (5) (insert ('*'));
 const stars = foldr (compose) (callback (null)) (listOfStarFunctions);
 const lists = fromArray ([stars (), fromString ('hello'), stars ()])
 const prettyHello = foldr (concat) (null) (lists);
-console.log (toString (prettyHello));  // ******hello******
+console.log (toString (prettyHello));  // *****hello*****
