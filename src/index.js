@@ -58,11 +58,11 @@ console.log (toString (prettyHello));  // *****hello*****
 // caesar code
 const encodeFns = fromArray ([chr, succ, ord]);
 const decodeFns = fromArray ([chr, pred, ord]);
-const msg = fromString ('Secret message!');
 
 const encode = foldr (compose) (id) (encodeFns);
 const decode = foldr (compose) (id) (decodeFns);
 
+const msg = fromString ('Secret message!');
 const encodedMsg = map (encode) (msg);
 const decodedMsg = map (decode) (encodedMsg);
 
