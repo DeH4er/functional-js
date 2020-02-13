@@ -8,7 +8,8 @@ import {
   insert,
   concat,
   zip,
-  toArray
+  toArray,
+  filter
 } from './list';
 
 import {
@@ -29,6 +30,11 @@ import {
   ord,
   chr
 } from './string';
+
+
+import {
+  eq
+} from './bool';
 
 
 // composition of functions
@@ -80,3 +86,9 @@ console.log(toArray (map (toArray) (zipped)));  // [ [ 1, 5 ], [ 2, 4 ], [ 3, 3 
 
 const sums = map (foldr (plus) (0)) (zipped);
 console.log(toArray (sums));  // [ 6, 6, 6, 6, 6 ]
+
+
+// filter lists
+const fullList = fromString ('Contains "a"');
+const filtered = filter (eq ('a')) (fullList);
+console.log (toString (filtered));  // aa
