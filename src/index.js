@@ -38,7 +38,7 @@ console.log (mul2plus1 (1));  // 3
 // map list of chars
 const helloList = fromString ('hello');
 const xxxxList = map (callback ('x')) (helloList);
-console.log (toString (xxxxList));  //  xxxxxx
+console.log (toString (xxxxList));  //  xxxxx
 
 
 // map list of chars with composition inside
