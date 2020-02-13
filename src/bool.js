@@ -8,3 +8,7 @@ export const and =
 
 export const not =
   a => !a;
+
+
+export const eq =
+  a => b => a === b;
