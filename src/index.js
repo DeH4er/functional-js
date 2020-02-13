@@ -9,7 +9,8 @@ import {
   concat,
   zip,
   toArray,
-  filter
+  filter,
+  reverse
 } from './list';
 
 import {
@@ -92,3 +93,9 @@ console.log(toArray (sums));  // [ 6, 6, 6, 6, 6 ]
 const fullList = fromString ('Contains "a"');
 const filtered = filter (eq ('a')) (fullList);
 console.log (toString (filtered));  // aa
+
+
+// reverse list
+const notReversed = fromString ('Not reversed string');
+const reversed = reverse (notReversed);
+console.log (toString (reversed));  // gnirts desrever toN
