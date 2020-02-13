@@ -3,7 +3,7 @@ export const or =
 
 
 export const and =
-  a => b = a && b;
+  a => b => a && b;
 
 
 export const not =
