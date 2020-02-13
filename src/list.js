@@ -71,6 +71,14 @@ export const zip =
     : null;
 
 
+export const filter =
+  f => l => isEmpty (l)
+    ? null
+    : f (head (l))
+      ? insert (head (l)) (filter (f) (tail (l)))
+      : filter (f) (tail (l));
+
+
 export const repeat =
   times => item => times <= 0
     ? null
