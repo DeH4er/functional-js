@@ -2,19 +2,19 @@ import { throwError } from './err';
 import { flip, curry } from './higher-order';
 
 
-export const empty =
+export const isEmpty =
   l => l === null;
 
 
 export const head =
-  l => empty (l)
-    ? throwError ('head: empty list')
+  l => isEmpty (l)
+    ? throwError ('head: isEmpty list')
     : l.head;
 
 
 export const tail =
-  l => empty (l)
-    ? throwError ('tail: empty list')
+  l => isEmpty (l)
+    ? throwError ('tail: isEmpty list')
     : l.tail;
 
 
@@ -23,7 +23,7 @@ export const insert =
 
 
 export const map =
-  f => l => empty (l)
+  f => l => isEmpty (l)
     ? null
     : insert (f (head(l))) (map (f) (tail (l)));
 
@@ -45,13 +45,13 @@ export const toString =
 
 
 export const foldl =
-  f => b => l => empty (l)
+  f => b => l => isEmpty (l)
     ? b
     : foldl (f) (f (b) (head (l))) (tail (l));
 
 
 export const foldr =
-  f => b => l => empty (l)
+  f => b => l => isEmpty (l)
     ? b
     : f (head (l)) (foldr (f) (b) (tail (l)))
 
@@ -67,6 +67,7 @@ export const repeat =
 
 
 const _toArray =
-  l => ar => empty (l)
+  l => ar => isEmpty (l)
     ? []
     : [head (l), ..._toArray (tail (l)) (ar)];
+
