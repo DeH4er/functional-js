@@ -1,5 +1,6 @@
 import { throwError } from './err';
 import { flip, curry } from './higher-order';
+import { and, not } from './bool';
 
 
 export const isEmpty =
@@ -58,6 +59,16 @@ export const foldr =
 
 export const concat =
   l1 => l2 => foldr (insert) (l1) (l2);
+
+
+export const zip =
+  l1 => l2 => and (not (isEmpty (l1))) (not (isEmpty (l2)))
+    ? (() => {
+      const zippedHead = insert (head (l1)) (insert (head (l2)) (null));
+      const zippedTail = zip (tail (l1)) (tail (l2));
+      return insert (zippedHead) (zippedTail);
+    })()
+    : null;
 
 
 export const repeat =
