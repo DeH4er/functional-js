@@ -6,7 +6,9 @@ import {
   map,
   repeat,
   insert,
-  concat
+  concat,
+  zip,
+  toArray
 } from './list';
 
 import {
@@ -68,3 +70,13 @@ const decodedMsg = map (decode) (encodedMsg);
 
 console.log (toString (encodedMsg));  // Tfdsfu!nfttbhf"
 console.log (toString (decodedMsg));  // Secret message!
+
+
+// zip lists
+const l1 = fromArray ([1, 2, 3, 4, 5]);
+const l2 = fromArray ([5, 4, 3, 2, 1, 0]);
+const zipped = zip (l1) (l2);
+console.log(toArray (map (toArray) (zipped)));  // [ [ 1, 5 ], [ 2, 4 ], [ 3, 3 ], [ 4, 2 ], [ 5, 1 ] ]
+
+const sums = map (foldr (plus) (0)) (zipped);
+console.log(toArray (sums));  // [ 6, 6, 6, 6, 6 ]
