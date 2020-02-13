@@ -79,6 +79,10 @@ export const filter =
       : filter (f) (tail (l));
 
 
+export const reverse =
+  l => foldl (flip (insert)) (null) (l);
+
+
 export const repeat =
   times => item => times <= 0
     ? null
