@@ -22,16 +22,6 @@ export const tail =
     : l.tail;
 
 
-export const insert =
-  v => l => ({head: v, tail: l});
-
-
-export const map =
-  f => l => isEmpty (l)
-    ? empty
-    : insert (f (head(l))) (map (f) (tail (l)));
-
-
 export const fromArray =
   ar => ar.reverse().reduce(curry (flip (insert)), empty);
 
@@ -46,6 +36,16 @@ export const fromString =
 
 export const toString =
   l => toArray(l).join('');
+
+
+export const insert =
+  v => l => ({head: v, tail: l});
+
+
+export const map =
+  f => l => isEmpty (l)
+    ? empty
+    : insert (f (head(l))) (map (f) (tail (l)));
 
 
 export const foldl =
