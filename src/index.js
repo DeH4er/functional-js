@@ -10,7 +10,8 @@ import {
   zip,
   toArray,
   filter,
-  reverse
+  reverse,
+  empty
 } from './list';
 
 import {
@@ -58,9 +59,9 @@ console.log (toString (angryList));  // XXXXX
 
 // prettify hello
 const listOfStarFunctions = repeat (5) (insert ('*'));
-const stars = foldr (compose) (callback (null)) (listOfStarFunctions);
+const stars = foldr (compose) (callback (empty)) (listOfStarFunctions);
 const lists = fromArray ([stars (), fromString ('hello'), stars ()])
-const prettyHello = foldr (concat) (null) (lists);
+const prettyHello = foldr (concat) (empty) (lists);
 console.log (toString (prettyHello));  // *****hello*****
 
 

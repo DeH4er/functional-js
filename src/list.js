@@ -7,6 +7,9 @@ export const isEmpty =
   l => l === null;
 
 
+export const empty = null;
+
+
 export const head =
   l => isEmpty (l)
     ? throwError ('head: isEmpty list')
@@ -25,12 +28,12 @@ export const insert =
 
 export const map =
   f => l => isEmpty (l)
-    ? null
+    ? empty
     : insert (f (head(l))) (map (f) (tail (l)));
 
 
 export const fromArray =
-  ar => ar.reverse().reduce(curry (flip (insert)), null);
+  ar => ar.reverse().reduce(curry (flip (insert)), empty);
 
 
 export const toArray =
@@ -64,28 +67,28 @@ export const concat =
 export const zip =
   l1 => l2 => and (not (isEmpty (l1))) (not (isEmpty (l2)))
     ? (() => {
-      const zippedHead = insert (head (l1)) (insert (head (l2)) (null));
+      const zippedHead = insert (head (l1)) (insert (head (l2)) (empty));
       const zippedTail = zip (tail (l1)) (tail (l2));
       return insert (zippedHead) (zippedTail);
     })()
-    : null;
+    : empty;
 
 
 export const filter =
   f => l => isEmpty (l)
-    ? null
+    ? empty
     : f (head (l))
       ? insert (head (l)) (filter (f) (tail (l)))
       : filter (f) (tail (l));
 
 
 export const reverse =
-  l => foldl (flip (insert)) (null) (l);
+  l => foldl (flip (insert)) (empty) (l);
 
 
 export const repeat =
   times => item => times <= 0
-    ? null
+    ? empty
     : insert (item) (repeat (times - 1) (item));
 
 
