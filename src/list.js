@@ -3,11 +3,11 @@ import { flip, curry } from './higher-order';
 import { and, not } from './bool';
 
 
-export const isEmpty =
-  l => l === null;
-
-
 export const empty = Symbol('empty');
+
+
+export const isEmpty =
+  l => l === empty;
 
 
 export const head =
