@@ -4,7 +4,7 @@ import {
   fromString,
   toString,
   map,
-  repeat,
+  replicate,
   insert,
   concat,
   zip,
@@ -58,7 +58,7 @@ console.log (toString (angryList));  // XXXXX
 
 
 // prettify hello
-const listOfStarFunctions = repeat (5) (insert ('*'));
+const listOfStarFunctions = replicate (5) (insert ('*'));
 const stars = foldr (compose) (callback (empty)) (listOfStarFunctions);
 const lists = fromArray ([stars (), fromString ('hello'), stars ()])
 const prettyHello = foldr (concat) (empty) (lists);

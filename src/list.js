@@ -86,10 +86,10 @@ export const reverse =
   l => foldl (flip (insert)) (empty) (l);
 
 
-export const repeat =
+export const replicate =
   times => item => times <= 0
     ? empty
-    : insert (item) (repeat (times - 1) (item));
+    : insert (item) (replicate (times - 1) (item));
 
 
 const _toArray =
