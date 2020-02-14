@@ -7,7 +7,7 @@ export const isEmpty =
   l => l === null;
 
 
-export const empty = null;
+export const empty = Symbol('empty');
 
 
 export const head =
