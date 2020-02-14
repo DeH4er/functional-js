@@ -12,3 +12,7 @@ export const not =
 
 export const eq =
   a => b => a === b;
+
+
+export const neq =
+  a => b => a !== b;
